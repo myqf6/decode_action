@@ -1,6 +1,7 @@
-//Wed Aug 14 2024 12:18:23 GMT+0000 (Coordinated Universal Time)
+//Wed Aug 14 2024 12:20:21 GMT+0000 (Coordinated Universal Time)
 //Base:https://github.com/echo094/decode-js
 //Modify:https://github.com/smallfawn/decode_action
+var iｉl = "jsjiami.com.v7";
 const jdCookie = require("./jdCookie"),
   notify = require("./utils/Rebels_sendJDNotify"),
   common = require("./utils/Rebels_jdCommon"),
@@ -11,13 +12,13 @@ const jdCookie = require("./jdCookie"),
 let waitTimes = 1000,
   cookie = "";
 const cookiesArr = Object.keys(jdCookie).map(IlII1 => jdCookie[IlII1]).filter(IiI11 => IiI11);
-!cookiesArr[0] && ($.msg($.name, "【提示】请先获取Cookie"), process.exit(1));
+!cookiesArr[0] && ($.msg($.name, "\u3010\u63D0\u793A\u3011\u8BF7\u5148\u83B7\u53D6Cookie"), process.exit(1));
 !(async () => {
   authorCodeList = await getAuthorCodeList("http://code.257999.xyz/fish.json");
-  authorCodeList ? (console.log("❖ 测试连通性中...\n❖ 服务状态正常...\n"), $.authorCode = authorCodeList[random(0, authorCodeList.length)]) : console.log("❖ 准备就绪...\n");
-  fishnum ? console.log("❖ 已填写指定人数变量，指定人数 [" + fishnum + "]") : null;
-  inviteCode ? console.log("❖ 已填写指定助力变量，开始助力 [" + inviteCode + "]") : console.log("❖ 未填写指定助力变量，开始助力账号[1]");
-  console.log("\n❖ 若多次风控未通过，可能此助力码已黑~");
+  authorCodeList ? (console.log("\u2756 \u6D4B\u8BD5\u8FDE\u901A\u6027\u4E2D...\n\u2756 \u670D\u52A1\u72B6\u6001\u6B63\u5E38...\n"), $.authorCode = authorCodeList[random(0, authorCodeList.length)]) : console.log("\u2756 \u51C6\u5907\u5C31\u7EEA...\n");
+  fishnum ? console.log("\u2756 \u5DF2\u586B\u5199\u6307\u5B9A\u4EBA\u6570\u53D8\u91CF\uFF0C\u6307\u5B9A\u4EBA\u6570 [" + fishnum + "]") : null;
+  inviteCode ? console.log("\u2756 \u5DF2\u586B\u5199\u6307\u5B9A\u52A9\u529B\u53D8\u91CF\uFF0C\u5F00\u59CB\u52A9\u529B [" + inviteCode + "]") : console.log("\u2756 \u672A\u586B\u5199\u6307\u5B9A\u52A9\u529B\u53D8\u91CF\uFF0C\u5F00\u59CB\u52A9\u529B\u8D26\u53F7[1]");
+  console.log("\n\u2756 \u82E5\u591A\u6B21\u98CE\u63A7\u672A\u901A\u8FC7\uFF0C\u53EF\u80FD\u6B64\u52A9\u529B\u7801\u5DF2\u9ED1~");
   notify.config({
     "title": $.name
   });
@@ -29,7 +30,7 @@ const cookiesArr = Object.keys(jdCookie).map(IlII1 => jdCookie[IlII1]).filter(Ii
     $.UA = common.genUA($.UserName);
     $.message = notify.create($.index, $.UserName);
     $.nickName = "";
-    console.log("\n******开始【京东账号" + $.index + "】" + ($.nickName || $.UserName) + "******\n");
+    console.log("\n******\u5F00\u59CB\u3010\u4EAC\u4E1C\u8D26\u53F7" + $.index + "\u3011" + ($.nickName || $.UserName) + "******\n");
     await Main();
     common.unsetCookie();
     if ($.runEnd) break;
@@ -41,16 +42,16 @@ async function Main() {
   try {
     $.retry = 0;
     await jstoken2();
-    !$.getid && $.retry < 10 && ($.retry++, console.log("必须参数未成功获取，重新获取中"), await $.wait(5000), await jstoken2());
+    !$.getid && $.retry < 10 && ($.retry++, console.log("\u5FC5\u987B\u53C2\u6570\u672A\u6210\u529F\u83B7\u53D6\uFF0C\u91CD\u65B0\u83B7\u53D6\u4E2D"), await $.wait(5000), await jstoken2());
     if (!$.getid) {
-      console.log("必须参数未成功获取，请重新运行");
+      console.log("\u5FC5\u987B\u53C2\u6570\u672A\u6210\u529F\u83B7\u53D6\uFF0C\u8BF7\u91CD\u65B0\u8FD0\u884C");
       return;
     }
     if (inviteCode) {
-      $.index == 1 ? (console.log("账号[1]默认去助力作者"), await inviteFissionhelp($.authorCode), await $.wait(parseInt(waitTimes * 1 + 2000, 10))) : (await inviteFissionhelp(inviteCode), await $.wait(parseInt(waitTimes * 1 + 2000, 10)));
+      $.index == 1 ? (console.log("\u8D26\u53F7[1]\u9ED8\u8BA4\u53BB\u52A9\u529B\u4F5C\u8005"), await inviteFissionhelp($.authorCode), await $.wait(parseInt(waitTimes * 1 + 2000, 10))) : (await inviteFissionhelp(inviteCode), await $.wait(parseInt(waitTimes * 1 + 2000, 10)));
     } else {
       if ($.index == 1) {
-        console.log("账号[1]默认去助力作者");
+        console.log("\u8D26\u53F7[1]\u9ED8\u8BA4\u53BB\u52A9\u529B\u4F5C\u8005");
         await inviteFissionhelp($.authorCode);
         await $.wait(parseInt(waitTimes * 1 + 2000, 10));
         $.queryInviterHelpInfo = "";
@@ -60,19 +61,19 @@ async function Main() {
           $.finishHelpNum = $.queryInviterHelpInfo.data.finishHelpNum;
           $.inviteCode = $.queryInviterHelpInfo.data.inviteCode;
           if ($.finishHelpNum >= 10) {
-            console.log("\n助力人数已满，退出执行~");
+            console.log("\n\u52A9\u529B\u4EBA\u6570\u5DF2\u6EE1\uFF0C\u9000\u51FA\u6267\u884C~");
             $.runEnd = true;
             return;
-          } else console.log("已有助力人数：" + $.finishHelpNum + "，助力码：" + $.inviteCode);
+          } else console.log("\u5DF2\u6709\u52A9\u529B\u4EBA\u6570\uFF1A" + $.finishHelpNum + "\uFF0C\u52A9\u529B\u7801\uFF1A" + $.inviteCode);
         } else {
-          console.log("\n❌ 未能正确获取助力码，退出执行！");
+          console.log("\n\u274C \u672A\u80FD\u6B63\u786E\u83B7\u53D6\u52A9\u529B\u7801\uFF0C\u9000\u51FA\u6267\u884C\uFF01");
           $.runEnd = true;
           return;
         }
       } else await inviteFissionhelp($.inviteCode), await $.wait(parseInt(waitTimes * 1 + 2000, 10));
     }
   } catch (lllli) {
-    console.log("❌ 脚本运行遇到了错误\n" + lllli);
+    console.log("\u274C \u811A\u672C\u8FD0\u884C\u9047\u5230\u4E86\u9519\u8BEF\n" + lllli);
   }
 }
 async function inviteFissionhelp(iiili1) {
@@ -85,22 +86,22 @@ async function handleResponse(I1lIiI, lllili) {
       case "queryInviterHelpInfo":
         if (lllili.resultData && lllili.resultCode === 0) {
           if (lllili.resultData && lllili.resultData.success && lllili.resultData.code === "0000") $.queryInviterHelpInfo = lllili.resultData;else {
-            console.log("\n失败: " + lllili.resultData.message);
+            console.log("\n\u5931\u8D25: " + lllili.resultData.message);
           }
         } else {
           let ilil1I = common.getErrorMsg(lllili);
-          console.log("\n邀请码获取失败: " + ilil1I);
+          console.log("\n\u9080\u8BF7\u7801\u83B7\u53D6\u5931\u8D25: " + ilil1I);
         }
         break;
       case "completeFissionHelp4JKL":
-        if (lllili.resultData && lllili.resultCode === 0) lllili.resultData && lllili.resultData.success && lllili.resultData.code === "0000" ? ($.finishHelpNum++, console.log("助力成功 ✅，已有助力人数：" + $.finishHelpNum), $.finishHelpNum >= 10 && (console.log("助力人数已满，退出执行~"), $.runEnd = true)) : console.log("助力失败: " + lllili.resultData.message);else {
+        if (lllili.resultData && lllili.resultCode === 0) lllili.resultData && lllili.resultData.success && lllili.resultData.code === "0000" ? ($.finishHelpNum++, console.log("\u52A9\u529B\u6210\u529F \u2705\uFF0C\u5DF2\u6709\u52A9\u529B\u4EBA\u6570\uFF1A" + $.finishHelpNum), $.finishHelpNum >= 10 && (console.log("\u52A9\u529B\u4EBA\u6570\u5DF2\u6EE1\uFF0C\u9000\u51FA\u6267\u884C~"), $.runEnd = true)) : console.log("\u52A9\u529B\u5931\u8D25: " + lllili.resultData.message);else {
           let lllilI = common.getErrorMsg(lllili);
-          console.log("失败: " + lllilI);
+          console.log("\u5931\u8D25: " + lllilI);
         }
         break;
     }
   } catch (ilil11) {
-    console.log("❌ 未能正确处理 " + I1lIiI + " 请求响应 " + (ilil11.message || ilil11));
+    console.log("\u274C \u672A\u80FD\u6B63\u786E\u5904\u7406 " + I1lIiI + " \u8BF7\u6C42\u54CD\u5E94 " + (ilil11.message || ilil11));
   }
 }
 async function sendRequest(illlI1) {
@@ -153,7 +154,7 @@ async function sendRequest(illlI1) {
       }, liiIIi = "reqData=" + JSON.stringify(bodystr), I1lIi1 = "https://ms.jr.jd.com/gw2/generic/mkWeapons/h5/m/completeFissionHelp4JKL?_t=" + Date.now();
       break;
     default:
-      console.log("❌ 未知请求 " + illlI1);
+      console.log("\u274C \u672A\u77E5\u8BF7\u6C42 " + illlI1);
       return;
   }
   const iIiIi = {
@@ -184,12 +185,12 @@ async function sendRequest(illlI1) {
     iiilil > 0 && (await $.wait(1000));
     const llI1Ii = await common.request(iIiIi);
     if (!llI1Ii.success) {
-      iil1li = "🚫 " + illlI1 + " 请求失败 ➜ " + llI1Ii.error;
+      iil1li = "\uD83D\uDEAB " + illlI1 + " \u8BF7\u6C42\u5931\u8D25 \u279C " + llI1Ii.error;
       iiilil++;
       continue;
     }
     if (!llI1Ii?.["data"]) {
-      iil1li = "🚫 " + illlI1 + " 请求失败 ➜ 无响应数据";
+      iil1li = "\uD83D\uDEAB " + illlI1 + " \u8BF7\u6C42\u5931\u8D25 \u279C \u65E0\u54CD\u5E94\u6570\u636E";
       iiilil++;
       continue;
     }
@@ -593,7 +594,7 @@ function Env(t, e) {
         }
       };
       if (this.isMute || (this.isSurge() || this.isLoon() ? $notification.post(e, s, i, o(r)) : this.isQuanX() && $notify(e, s, i, o(r))), !this.isMuteLog) {
-        let t = ["", "==============📣系统通知📣=============="];
+        let t = ["", "==============\uD83D\uDCE3\u7CFB\u7EDF\u901A\u77E5\uD83D\uDCE3=============="];
         t.push(e);
         s && t.push(s);
         i && t.push(i);
