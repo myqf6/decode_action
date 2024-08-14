@@ -1,4 +1,4 @@
-//Wed Aug 14 2024 11:57:33 GMT+0000 (Coordinated Universal Time)
+//Wed Aug 14 2024 12:01:53 GMT+0000 (Coordinated Universal Time)
 //Base:https://github.com/echo094/decode-js
 //Modify:https://github.com/smallfawn/decode_action
 const $ = new Env("\u6B22\u4E50\u6DD8\u91D1(\u53D1\u8D22\u6316\u5B9D)\u52A9\u529B");
