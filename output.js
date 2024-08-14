@@ -1,23 +1,6 @@
-//Wed Aug 14 2024 11:50:37 GMT+0000 (Coordinated Universal Time)
+//Wed Aug 14 2024 11:57:33 GMT+0000 (Coordinated Universal Time)
 //Base:https://github.com/echo094/decode-js
 //Modify:https://github.com/smallfawn/decode_action
-/*
-欢乐淘金（发财挖宝）助力
-
-入口：京东APP——玩一玩——欢乐淘金
-
-地址：
-https://bnzf.jd.com/?activityId=Bn1VWXtvgTv5ewPoMR-X8A
-
-环境变量：
-JD_FCWB_ID // 指定活动ID  不指定默认 APP入口  格式：Bn1VWXtvgTv5ewPoMR-X8A 
-JD_FCWB_InviterId // 指定助力码 非必须，不填默认助力账号一  格式：inviterId&inviterCode
-JD_FCWB_NUM // 指定人数  非必须，不填默认跑全部账号
-
-cron:1 1 1 1 *
-
-*/
-
 const $ = new Env("\u6B22\u4E50\u6DD8\u91D1(\u53D1\u8D22\u6316\u5B9D)\u52A9\u529B");
 var iｉl = "jsjiami.com.v7";
 const ililIi = iii1II;
