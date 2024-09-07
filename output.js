@@ -1,4 +1,4 @@
-//Sat Sep 07 2024 08:16:59 GMT+0000 (Coordinated Universal Time)
+//Sat Sep 07 2024 08:23:42 GMT+0000 (Coordinated Universal Time)
 //Base:https://github.com/echo094/decode-js
 //Modify:https://github.com/smallfawn/decode_action
 function xd8R_D2() {}
