@@ -1,6 +1,3 @@
-//Mon Sep 09 2024 10:41:28 GMT+0000 (Coordinated Universal Time)
-//Base:https://github.com/echo094/decode-js
-//Modify:https://github.com/smallfawn/decode_action
 const notify = $.isNode() ? require("../sendNotify") : "";
 function a0d(a, b) {
   var c = a0c();
